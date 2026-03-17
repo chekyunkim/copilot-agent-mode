@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Manrope:wght@400;600;700&display=swap');
+
+:root {
+  --ink: #0f172a;
+  --deep: #102a43;
+  --aqua: #0ea5a4;
+  --sun: #ffb703;
+  --mist: #e0fbfc;
+  --paper: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 20% -10%, rgba(255, 183, 3, 0.18), transparent 45%),
+    radial-gradient(circle at 100% 0%, rgba(14, 165, 164, 0.2), transparent 35%),
+    linear-gradient(160deg, #f6fbff 0%, #fdf9ef 100%);
+}
+
+.page-wrap {
+  min-height: 100vh;
+}
+
+.hero {
+  animation: rise 450ms ease-out;
+}
+
+.hero-kicker {
+  color: var(--aqua);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1;
+  margin: 0;
+  color: var(--deep);
+}
+
+.hero-subtitle {
+  margin-top: 0.8rem;
+  max-width: 720px;
+  color: #334155;
+}
+
+.hero-api {
+  color: #475569;
+  font-size: 0.95rem;
+  word-break: break-all;
+}
+
+.stat-card {
+  padding: 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(16, 42, 67, 0.1);
+  box-shadow: 0 8px 24px rgba(16, 42, 67, 0.08);
+  backdrop-filter: blur(4px);
+  animation: rise 500ms ease both;
+}
+
+.stat-card h2 {
+  margin: 0;
+  font-size: 1rem;
+  color: #334155;
+}
+
+.stat-value {
+  font-family: 'Barlow Condensed', sans-serif;
+  margin-top: 0.35rem;
+  font-size: 2rem;
+  color: var(--deep);
+}
+
+.data-panel {
+  border-radius: 18px;
+  border: 1px solid rgba(16, 42, 67, 0.12);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 10px 26px rgba(16, 42, 67, 0.07);
+  padding: 1rem;
+  animation: rise 600ms ease both;
+}
+
+.panel-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.4rem;
+  color: var(--deep);
+}
+
+.field-col {
+  color: #334155;
+  font-weight: 700;
+}
+
+.json-preview {
+  margin: 0;
+  max-height: 220px;
+  overflow: auto;
+  padding: 0.75rem;
+  border-radius: 10px;
+  background: var(--paper);
+  border: 1px solid #dbe5ef;
+  color: #334155;
+  font-size: 0.8rem;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .data-panel {
+    padding: 0.85rem;
+  }
+
+  .json-preview {
+    font-size: 0.75rem;
+  }
+}
