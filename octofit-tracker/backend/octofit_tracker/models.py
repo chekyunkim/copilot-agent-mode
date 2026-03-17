@@ -11,6 +11,10 @@ class UserProfile(models.Model):
 
     class Meta:
         db_table = 'users'
+        ordering = ['name']
+
+    def __str__(self):
+        return f'{self.name} ({self.hero})'
 
 
 class Team(models.Model):
@@ -21,6 +25,10 @@ class Team(models.Model):
 
     class Meta:
         db_table = 'teams'
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
 
 
 class Activity(models.Model):
@@ -32,6 +40,10 @@ class Activity(models.Model):
 
     class Meta:
         db_table = 'activities'
+        ordering = ['-performed_at']
+
+    def __str__(self):
+        return f'{self.user_email} - {self.activity_type}'
 
 
 class LeaderboardEntry(models.Model):
@@ -42,6 +54,10 @@ class LeaderboardEntry(models.Model):
 
     class Meta:
         db_table = 'leaderboard'
+        ordering = ['rank']
+
+    def __str__(self):
+        return f'#{self.rank} {self.hero_name}'
 
 
 class WorkoutRecommendation(models.Model):
@@ -53,3 +69,7 @@ class WorkoutRecommendation(models.Model):
 
     class Meta:
         db_table = 'workouts'
+        ordering = ['user_email', 'workout_name']
+
+    def __str__(self):
+        return f'{self.user_email} - {self.workout_name}'

@@ -6,7 +6,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.routers import DefaultRouter
 
-from .viewsets import (
+from .views import (
     ActivityViewSet,
     LeaderboardViewSet,
     TeamViewSet,
@@ -20,13 +20,6 @@ if codespace_name:
 else:
     base_url = "http://localhost:8000"
 
-router = DefaultRouter()
-router.register(r'users', UserProfileViewSet)
-router.register(r'teams', TeamViewSet)
-router.register(r'activities', ActivityViewSet)
-router.register(r'leaderboard', LeaderboardViewSet)
-router.register(r'workouts', WorkoutViewSet)
-
 
 @api_view(['GET'])
 def api_root(request):
@@ -38,8 +31,16 @@ def api_root(request):
         'workouts': f'{base_url}/api/workouts/',
     })
 
+router = DefaultRouter()
+router.register(r'users', UserProfileViewSet)
+router.register(r'teams', TeamViewSet)
+router.register(r'activities', ActivityViewSet)
+router.register(r'leaderboard', LeaderboardViewSet)
+router.register(r'workouts', WorkoutViewSet)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', api_root, name='root-api'),
     path('api/', api_root, name='api-root'),
     path('api/', include(router.urls)),
 ]
