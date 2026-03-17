@@ -58,59 +58,41 @@ body {
   word-break: break-all;
 }
 
-.stat-card {
-  padding: 1rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(16, 42, 67, 0.1);
-  box-shadow: 0 8px 24px rgba(16, 42, 67, 0.08);
-  backdrop-filter: blur(4px);
-  animation: rise 500ms ease both;
-}
-
-.stat-card h2 {
-  margin: 0;
-  font-size: 1rem;
-  color: #334155;
-}
-
-.stat-value {
-  font-family: 'Barlow Condensed', sans-serif;
-  margin-top: 0.35rem;
-  font-size: 2rem;
-  color: var(--deep);
-}
-
-.data-panel {
+.app-nav,
+.component-card {
   border-radius: 18px;
-  border: 1px solid rgba(16, 42, 67, 0.12);
+  border: 1px solid rgba(16, 42, 67, 0.08);
   background: rgba(255, 255, 255, 0.88);
   box-shadow: 0 10px 26px rgba(16, 42, 67, 0.07);
-  padding: 1rem;
   animation: rise 600ms ease both;
 }
 
-.panel-title {
+.component-card h2 {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 1.4rem;
   color: var(--deep);
 }
 
-.field-col {
+.component-card .form-control,
+.component-card .btn {
+  border-radius: 10px;
+}
+
+.component-card .link-primary {
+  text-underline-offset: 2px;
+}
+
+.app-data-table thead th {
   color: #334155;
   font-weight: 700;
 }
 
-.json-preview {
-  margin: 0;
-  max-height: 220px;
-  overflow: auto;
-  padding: 0.75rem;
-  border-radius: 10px;
-  background: var(--paper);
-  border: 1px solid #dbe5ef;
+.app-data-table tbody td {
   color: #334155;
-  font-size: 0.8rem;
+}
+
+.modal-backdrop.show {
+  opacity: 0.35;
 }
 
 @keyframes rise {
@@ -126,11 +108,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  .data-panel {
-    padding: 0.85rem;
-  }
-
-  .json-preview {
-    font-size: 0.75rem;
+  .hero {
+    padding-top: 2rem !important;
   }
 }
