@@ -15,10 +15,7 @@ from .views import (
 )
 
 codespace_name = os.environ.get('CODESPACE_NAME')
-if codespace_name:
-    base_url = f"https://{codespace_name}-8000.app.github.dev"
-else:
-    base_url = "http://localhost:8000"
+base_url = f"https://{codespace_name}-8000.app.github.dev" if codespace_name else "http://localhost:8000"
 
 
 @api_view(['GET'])
